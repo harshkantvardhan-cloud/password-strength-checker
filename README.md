@@ -20,27 +20,32 @@ Here are example password evaluations:
 
 **Weak Password:**
 ```
-Enter password: password123
+Enter password: hhhh
 Score: 35
 Rating: Weak
 Remarks:
+- Good length
 - No uppercase letters
-- Contains common word: password
+- No digits
+- No symbols
 ```
 
 **Moderate Password:**
 ```
-Enter password: MyPassword2024
-Score: 60
-Rating: Strong
+Enter password: 1234
+Score: 35
+Rating: Weak
 Remarks:
-- Good length
+- Too short
+- No uppercase letters
+- No lowercase letters
+- No symbols
 ```
 
 **Strong Password:**
 ```
-Enter password: Tr0pic@lThunder2024!
-Score: 100
+Enter password: Qx7lmP@92Lk#VrT8
+Score: 80
 Rating: Very Strong
 Remarks:
 - Good length
