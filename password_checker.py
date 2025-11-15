@@ -1,15 +1,22 @@
-import re
+﻿import re
 from pathlib import Path
 
-def load_common_words(path="common_words.txt"):
+
+def load_common_words(path: str = "common_words.txt"):
     p = Path(path)
     if not p.exists():
         return set()
-    return {line.strip().lower() for line in p.read_text(encoding="utf-8").splitlines() if line.strip()}
+
+    text = p.read_text(encoding="utf-8")
+    lines = [line.strip() for line in text.splitlines() if line.strip()]
+    return {line.lower() for line in lines}
+
 
 COMMON_WORDS = load_common_words()
 
+
 SYMBOLS_REGEX = re.compile(r"[^\w\s]", re.UNICODE)
+
 
 def score_password(password: str) -> dict:
     score = 0
@@ -65,7 +72,8 @@ def score_password(password: str) -> dict:
 
     return {"score": score, "rating": rating, "remarks": remarks}
 
-def main():
+
+def main() -> None:
     pwd = input("Enter password: ")
     res = score_password(pwd)
     print("Score:", res["score"])
@@ -73,6 +81,7 @@ def main():
     print("Remarks:")
     for r in res["remarks"]:
         print("-", r)
+
 
 if __name__ == "__main__":
     main()

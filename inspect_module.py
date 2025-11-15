@@ -1,5 +1,4 @@
 import ast
-import sys
 
 # Read the file source
 with open('password_checker.py', 'r') as f:
