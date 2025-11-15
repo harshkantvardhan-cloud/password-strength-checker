@@ -22,6 +22,11 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
+      - name: Run linter (flake8)
+        run: |
+          # run flake8 to check code style
+          flake8 .
+
       - name: Run tests
         run: |
           python -m pytest -q
